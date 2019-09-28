@@ -29,9 +29,17 @@ module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
         new StyleLintPlugin(),
 
         new CopyWebpackPlugin([
-          { from: 'src/assets/favicon.ico' }
+            { from: 'src/assets/favicon.ico' },
+            { from: path.resolve(__dirname,
+                                 'node_modules/cesium/Build/CesiumUnminified'),
+              to: path.resolve(__dirname, 'public')}
+
         ]),
-      ]
+
+      ],
+        devServer: {
+            contentBase: 'public'
+        }
     },
     modeConfig(mode),
     presetConfig({ mode, presets }),

@@ -2,6 +2,7 @@ module Main exposing (main)
 
 import Browser exposing (Document)
 import Html exposing (..)
+import Html.Attributes exposing (id, style)
 
 
 
@@ -41,7 +42,14 @@ view model =
     { title = "SimViewer"
     , body =
         [ div []
-            [ text "Hello" ]
+            [ text "Hello"
+            , div
+                [ id "cesium"
+                , style "width" "100vw"
+                , style "height" "100vh"
+                ]
+                []
+            ]
         ]
     }
 
